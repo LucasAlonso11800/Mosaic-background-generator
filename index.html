@@ -4,23 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lucas Alonso">
+    <link rel="icon" href=""/>
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <title>Classes</title>
+    <!-- HTML TO CANVAS -->
+    <script src=https://unpkg.com/html2canvas@1.0.0-rc.7/dist/html2canvas.js crossorigin='anonymous'></script>
+    <title>Random Background Generator</title>
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar">
             <p class="title">Choose a value between 0 and 255 of each color to generate a random mosaic background</p>
-            <form class="form">
-                <label for="red" class="label">Red</label>
-                <input type="number" max="255" min="0" id="red" name="red" class="input">
-                <label for="green" class="label">Green</label>
-                <input type="number" max="255" min="0" id="green" name="green" class="input">
-                <label for="blue" class="label">Blue</label>
-                <input type="number" max="255" min="0" id="blue" name="blue" class="input">
-                <button type="submit" id="submit-button">Generate background</button>
-            </form>
+            <div class="form-container">
+                <form class="form">
+                    <label for="red" class="label">Red</label>
+                    <input type="number" max="255" min="0" id="red" name="red" class="input">
+                    <label for="green" class="label">Green</label>
+                    <input type="number" max="255" min="0" id="green" name="green" class="input">
+                    <label for="blue" class="label">Blue</label>
+                    <input type="number" max="255" min="0" id="blue" name="blue" class="input">
+                    <button type="submit" id="submit-button" class="button">Generate background</button>
+                </form>
+                <button type="button" id="download-button" class="button">Download your background</button>
+            </div>
         </nav>
     </header>
     <main id="background">

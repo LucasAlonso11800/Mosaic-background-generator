@@ -1,3 +1,5 @@
+// GENERATING BACKGROUND
+
 const $background = document.getElementById('background');
 const $red = document.getElementById('red');
 const $green = document.getElementById('green');
@@ -16,7 +18,6 @@ $submit.addEventListener('click', (e) => {
     for (let i = 0; i < 1000; i++){
         newColors($red.value, $green.value, $blue.value)
     }
-
     createRectangles()
 });
 
@@ -30,19 +31,23 @@ function newColors(r, g, b){
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     };
 
-    let maxRed = r + 20;
+    if(r === '') r = 0;
+    if(g === '') g = 0;
+    if(b === '') b = 0;
+
+    let maxRed = parseInt(r) + 20;
     if(maxRed > 255) maxRed = 255;
-    let minRed = r - 20;
+    let minRed = parseInt(r) - 20;
     if(minRed < 0) minRed = 0;
 
-    let maxGreen = g + 20;
+    let maxGreen = parseInt(g) + 20;
     if(maxGreen > 255) maxGreen = 255;
-    let minGreen = g - 20;
+    let minGreen = parseInt(g) - 20;
     if(minGreen < 0) minGreen = 0;
 
-    let maxBlue = b + 20;
+    let maxBlue = parseInt(b) + 20;
     if(maxBlue > 255) maxBlue = 255;
-    let minBlue = b - 20;
+    let minBlue = parseInt(b) - 20;
     if(minBlue < 0) minBlue = 0;
 
     let red = Math.floor(Math.random() * (maxRed - minRed) + minRed);
@@ -68,7 +73,7 @@ class Rectangle {
         div.style.height = 4 + "vh";
         div.style.backgroundColor = this.color;
         div.style.left = this.left + "%"
-        div.style.top = this.top + "vh"
+        div.style.top = this.top + "%"
 
         $background.appendChild(div)
     }
@@ -87,3 +92,20 @@ function createRectangles() {
         }
     }
 };
+
+// SAVING BACKGROUND
+
+const downloadButton = document.getElementById('download-button'); 
+
+function save(canvas) {
+    let a = document.createElement('a');
+    a.href = canvas.toDataURL();
+    a.download = 'MosaicBackground.png';
+    a.click()
+};
+
+function divToImg(div) {
+    html2canvas(div, {scrollY: -window.scrollY}).then(canvas => save(canvas))
+};
+
+downloadButton.addEventListener('click', () => divToImg($background));
