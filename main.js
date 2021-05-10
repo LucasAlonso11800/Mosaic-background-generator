@@ -15,13 +15,13 @@ $submit.addEventListener('click', (e) => {
     };
     colors = [];
 
-    for (let i = 0; i < 1000; i++){
+    for (let i = 0; i < 1000; i++) {
         newColors($red.value, $green.value, $blue.value)
     }
     createRectangles()
 });
 
-function newColors(r, g, b){
+function newColors(r, g, b) {
     function componentToHex(c) {
         let hex = c.toString(16);
         return hex.length == 1 ? "0" + hex : hex;
@@ -31,24 +31,24 @@ function newColors(r, g, b){
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     };
 
-    if(r === '') r = 0;
-    if(g === '') g = 0;
-    if(b === '') b = 0;
+    if (r === '') r = 0;
+    if (g === '') g = 0;
+    if (b === '') b = 0;
 
     let maxRed = parseInt(r) + 30;
-    if(maxRed > 255) maxRed = 255;
+    if (maxRed > 255) maxRed = 255;
     let minRed = parseInt(r) - 30;
-    if(minRed < 0) minRed = 0;
+    if (minRed < 0) minRed = 0;
 
     let maxGreen = parseInt(g) + 30;
-    if(maxGreen > 255) maxGreen = 255;
+    if (maxGreen > 255) maxGreen = 255;
     let minGreen = parseInt(g) - 30;
-    if(minGreen < 0) minGreen = 0;
+    if (minGreen < 0) minGreen = 0;
 
     let maxBlue = parseInt(b) + 30;
-    if(maxBlue > 255) maxBlue = 255;
+    if (maxBlue > 255) maxBlue = 255;
     let minBlue = parseInt(b) - 30;
-    if(minBlue < 0) minBlue = 0;
+    if (minBlue < 0) minBlue = 0;
 
     let red = Math.floor(Math.random() * (maxRed - minRed) + minRed);
     let green = Math.floor(Math.random() * (maxGreen - minGreen) + minGreen);
@@ -68,8 +68,8 @@ class Rectangle {
         const div = newRectangle
         div.classList.add("animated")
         div.style.position = "absolute"
-        div.style.width = 4 + "%";
-        div.style.height = 4 + "vh";
+        div.style.width = 2.5 + "%";
+        div.style.height = 2.5 + "vh";
         div.style.backgroundColor = this.color;
         div.style.left = this.left + "%"
         div.style.top = this.top + "%"
@@ -79,13 +79,13 @@ class Rectangle {
 };
 
 function createRectangles() {
-    for (let i = 0; i < 25; i++) {
-        for (let j = 0; j < 25; j++){
+    for (let i = 0; i < 40; i++) {
+        for (let j = 0; j < 40; j++) {
             setTimeout(() => {
                 let randomColor = Math.floor(Math.random() * colors.length);
-                let left = j * 4;
-                let top = i * 4;
-    
+                let left = j * 2.5;
+                let top = i * 2.5;
+
                 new Rectangle(colors[randomColor], left, top)
             }, i * 100)
         }
@@ -94,7 +94,7 @@ function createRectangles() {
 
 // SAVING BACKGROUND
 
-const downloadButton = document.getElementById('download-button'); 
+const downloadButton = document.getElementById('download-button');
 
 function save(canvas) {
     let a = document.createElement('a');
@@ -104,7 +104,7 @@ function save(canvas) {
 };
 
 function divToImg(div) {
-    html2canvas(div, {scrollY: -window.scrollY}).then(canvas => save(canvas))
+    html2canvas(div, { scrollY: -window.scrollY, scrollX: 0 }).then(canvas => save(canvas))
 };
 
 downloadButton.addEventListener('click', () => divToImg($background));
