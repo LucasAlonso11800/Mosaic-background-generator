@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Classes</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <p class="title">Choose a value between 0 and 255 of each color to generate a random mosaic background</p>
+            <form class="form">
+                <label for="red" class="label">Red</label>
+                <input type="number" max="255" min="0" id="red" name="red" value="0" class="input">
+                <label for="green" class="label">Green</label>
+                <input type="number" max="255" min="0" id="green" name="green" value="0" class="input">
+                <label for="blue" class="label">Blue</label>
+                <input type="number" max="255" min="0" id="blue" name="blue" value="0" class="input">
+                <button type="submit" id="submit-button">Generate background</button>
+            </form>
+        </nav>
+    </header>
+    <main id="background">
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
