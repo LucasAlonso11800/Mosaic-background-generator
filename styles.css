@@ -74,17 +74,11 @@ body{
 }
 
 .animated{
-    animation: enter 1000ms forwards ease-in-out;
+    animation: enter 500ms forwards ease-in-out;
 }
 
 @keyframes enter{
     0%{
-        transform: scale(1)
-    }
-    25% {
-        transform: scale(0)
-    }
-    75%{
         transform: scale(2)
     }
     100%{
