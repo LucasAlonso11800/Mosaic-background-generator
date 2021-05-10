@@ -35,19 +35,19 @@ function newColors(r, g, b){
     if(g === '') g = 0;
     if(b === '') b = 0;
 
-    let maxRed = parseInt(r) + 20;
+    let maxRed = parseInt(r) + 30;
     if(maxRed > 255) maxRed = 255;
-    let minRed = parseInt(r) - 20;
+    let minRed = parseInt(r) - 30;
     if(minRed < 0) minRed = 0;
 
-    let maxGreen = parseInt(g) + 20;
+    let maxGreen = parseInt(g) + 30;
     if(maxGreen > 255) maxGreen = 255;
-    let minGreen = parseInt(g) - 20;
+    let minGreen = parseInt(g) - 30;
     if(minGreen < 0) minGreen = 0;
 
-    let maxBlue = parseInt(b) + 20;
+    let maxBlue = parseInt(b) + 30;
     if(maxBlue > 255) maxBlue = 255;
-    let minBlue = parseInt(b) - 20;
+    let minBlue = parseInt(b) - 30;
     if(minBlue < 0) minBlue = 0;
 
     let red = Math.floor(Math.random() * (maxRed - minRed) + minRed);
@@ -68,7 +68,6 @@ class Rectangle {
         const div = newRectangle
         div.classList.add("animated")
         div.style.position = "absolute"
-        div.style.zIndex = -10
         div.style.width = 4 + "%";
         div.style.height = 4 + "vh";
         div.style.backgroundColor = this.color;
