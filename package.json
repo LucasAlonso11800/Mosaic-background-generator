@@ -1,0 +1,24 @@
+{
+  "name": "background-generator",
+  "version": "1.0.0",
+  "description": "This simple HTML, CSS and JavaScript application takes an rgb value provided by the user and generates a 40x40 mosaic in that tonality that can be downloaded.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasAlonso11800/Mosaic-background-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasAlonso11800/Mosaic-background-generator/issues"
+  },
+  "homepage": "https://github.com/LucasAlonso11800/Mosaic-background-generator#readme",
+  "dependencies": {
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0"
+  }
+}
